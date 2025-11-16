@@ -1,4 +1,4 @@
-package com.unaagendamento.cadastrousuario.confing;
+package com.unaagendamento.cadastrousuario.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
