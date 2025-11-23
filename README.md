@@ -62,7 +62,7 @@ cd [nome-do-repositorio]
 <summary><strong>🗄️ 2. Criar o Banco de Dados no MySQL</strong></summary>
 
 ```sql
-CREATE DATABASE db_agendamento;
+CREATE DATABASE db_una_cadastro;
 ```
 
 </details>
@@ -75,14 +75,11 @@ CREATE DATABASE db_agendamento;
 ```properties
 # --- Configuração do Banco de Dados MySQL ---
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_una_cadastro
-
 spring.datasource.username=root
 
 # --- Configuração do Hibernate (JPA) ---
 spring.jpa.hibernate.ddl-auto=update
-
 spring.jpa.show-sql=true
-
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
 # --- Configuração de Segurança ---
