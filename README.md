@@ -51,8 +51,73 @@ Este microserviço possui **apenas uma responsabilidade**:
 git clone [URL_DO_SEU_REPOSITORIO_GIT]
 cd [nome-do-repositorio]
 
-</details>
-<details> <summary><strong>🗄️ 2. Criar o Banco de Dados no MySQL</strong></summary>
+<details>
+<summary><strong>🗄️ 2. Criar o Banco de Dados no MySQL</strong></summary>
+
+\`\`\`sql
 CREATE DATABASE db_agendamento;
+\`\`\`
+
+</details>
+
+---
+
+<details>
+<summary><strong>⚙️ 3. Configurar o arquivo <code>application.properties</code></strong></summary>
+
+\`\`\`properties
+# --- Configuração do Banco de Dados MySQL ---
+spring.datasource.url=jdbc:mysql://localhost:3306/db_agendamento
+spring.datasource.username=root
+spring.datasource.password=sua_senha_do_banco
+
+# --- Configuração do Hibernate (JPA) ---
+spring.jpa.hibernate.ddl-auto=update
+
+# --- Porta da Aplicação ---
+server.port=8081
+\`\`\`
+
+</details>
+
+---
+
+<details>
+<summary><strong>▶️ 4. Executar o Projeto</strong></summary>
+
+### No Windows:
+\`\`\`bash
+./mvnw.cmd spring-boot:run
+\`\`\`
+
+### No Linux/Mac:
+\`\`\`bash
+./mvnw spring-boot:run
+\`\`\`
+
+A aplicação iniciará em **http://localhost:8081**
+
+</details>
+
+---
+
+<details>
+<summary><strong>🧪 Testar via Postman</strong></summary>
+
+### 1. URL da requisição
+\`\`\`
+POST http://localhost:8081/api/v1/usuarios
+\`\`\`
+
+### 2. Body (JSON)
+\`\`\`json
+{
+  "nome": "Teste Postman",
+  "cpf": "12345678900",
+  "email": "teste@postman.com",
+  "senha": "senha123",
+  "telefone": "31999998888"
+}
+\`\`\`
 
 </details>
