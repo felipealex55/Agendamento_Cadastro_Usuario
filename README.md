@@ -75,11 +75,14 @@ CREATE DATABASE db_agendamento;
 \`\`\`properties
 # --- Configuração do Banco de Dados MySQL ---
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_una_cadastro
+
 spring.datasource.username=root
 
 # --- Configuração do Hibernate (JPA) ---
 spring.jpa.hibernate.ddl-auto=update
+
 spring.jpa.show-sql=true
+
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
 # --- Configuração de Segurança ---
@@ -127,13 +130,11 @@ POST http://localhost:8080/usuario
 {
   "nome": "Teste Postman",
   "cpf": "12345678900",
-  
   "email": "teste@postman.com",
-  
   "senha": "senha123",
-  
   "telefone": "31999998888"
 }
+
 \`\`\`
 
 </details>
