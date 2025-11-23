@@ -3,7 +3,8 @@
 ### 🧩 *Microserviço de Cadastro (Projeto Acadêmico)*  
 Repositório responsável pelo microserviço de **cadastro de usuários**, parte de um projeto acadêmico cujo objetivo é criar um app de agendamento de serviços.
 
-Respositorio do front-end - https://github.com/P3dr0EM/Una_Agendamento
+📎 Repositório do front-end: https://github.com/P3dr0EM/Una_Agendamento
+
 ---
 
 ## 🎯 1. Objetivo do Serviço
@@ -42,16 +43,21 @@ Este microserviço possui **apenas uma responsabilidade**:
 
 ---
 
-### 📥 Passos para Configuração
+## 📥 Passos para Configuração
 
-<details>
+### <details>
 <summary><strong>📁 1. Clonar o Repositório</strong></summary>
 
-```bash
+\`\`\`bash
 git clone [URL_DO_SEU_REPOSITORIO_GIT]
 cd [nome-do-repositorio]
+\`\`\`
 
-<details>
+</details>
+
+---
+
+### <details>
 <summary><strong>🗄️ 2. Criar o Banco de Dados no MySQL</strong></summary>
 
 \`\`\`sql
@@ -62,7 +68,7 @@ CREATE DATABASE db_agendamento;
 
 ---
 
-<details>
+### <details>
 <summary><strong>⚙️ 3. Configurar o arquivo <code>application.properties</code></strong></summary>
 
 \`\`\`properties
@@ -82,15 +88,15 @@ server.port=8081
 
 ---
 
-<details>
+### <details>
 <summary><strong>▶️ 4. Executar o Projeto</strong></summary>
 
-### No Windows:
+#### No Windows:
 \`\`\`bash
 ./mvnw.cmd spring-boot:run
 \`\`\`
 
-### No Linux/Mac:
+#### No Linux/Mac:
 \`\`\`bash
 ./mvnw spring-boot:run
 \`\`\`
@@ -101,15 +107,15 @@ A aplicação iniciará em **http://localhost:8081**
 
 ---
 
-<details>
+### <details>
 <summary><strong>🧪 Testar via Postman</strong></summary>
 
-### 1. URL da requisição
+#### 1. URL da requisição
 \`\`\`
 POST http://localhost:8081/api/v1/usuarios
 \`\`\`
 
-### 2. Body (JSON)
+#### 2. Body (JSON)
 \`\`\`json
 {
   "nome": "Teste Postman",
@@ -121,3 +127,5 @@ POST http://localhost:8081/api/v1/usuarios
 \`\`\`
 
 </details>
+
+---
