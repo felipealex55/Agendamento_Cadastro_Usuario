@@ -48,11 +48,11 @@ Este microserviço possui **apenas uma responsabilidade**:
 ### <details>
 <summary><strong>📁 1. Clonar o Repositório</strong></summary>
 
-\`\`\`bash
+```bash
 git clone [URL_DO_REPOSITORIO]
 
 cd [nome-do-repositorio]
-\`\`\`
+```
 
 </details>
 
@@ -61,9 +61,9 @@ cd [nome-do-repositorio]
 ### <details>
 <summary><strong>🗄️ 2. Criar o Banco de Dados no MySQL</strong></summary>
 
-\`\`\`sql
+```sql
 CREATE DATABASE db_agendamento;
-\`\`\`
+```
 
 </details>
 
@@ -72,7 +72,7 @@ CREATE DATABASE db_agendamento;
 ### <details>
 <summary><strong>⚙️ 3. Configurar o arquivo <code>application.properties</code></strong></summary>
 
-\`\`\`properties
+```properties
 # --- Configuração do Banco de Dados MySQL ---
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_una_cadastro
 
@@ -91,7 +91,7 @@ spring.security.user.password={noop}admin123
 
 # --- Porta da Aplicação ---
 server.port=8080
-\`\`\`
+```
 
 </details>
 
@@ -101,14 +101,14 @@ server.port=8080
 <summary><strong>▶️ 4. Executar o Projeto</strong></summary>
 
 #### No Windows:
-\`\`\`bash
+```bash
 ./mvnw.cmd spring-boot:run
-\`\`\`
+```
 
 #### No Linux/Mac:
-\`\`\`bash
+```bash
 ./mvnw spring-boot:run
-\`\`\`
+```
 
 A aplicação iniciará em **http://localhost:8080**
 
@@ -122,10 +122,10 @@ A aplicação iniciará em **http://localhost:8080**
 #### 1. URL da requisição
 ```
 POST http://localhost:8080/usuario
-\`\`\`
+```
 
 #### 2. Body (JSON)
-\`\`\`json
+```json
 
 {
   "nome": "Teste Postman",
@@ -135,7 +135,7 @@ POST http://localhost:8080/usuario
   "telefone": "31999998888" 
 }
 
-\`\`\`
+```
 
 </details>
 
