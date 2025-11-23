@@ -123,9 +123,9 @@ POST http://localhost:8080/usuario
 
 #### 2. Body (JSON)
 \`\`\`json
+
 {
   "nome": "Teste Postman",
-  
   "cpf": "12345678900",
   
   "email": "teste@postman.com",
