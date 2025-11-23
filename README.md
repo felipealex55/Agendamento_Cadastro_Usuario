@@ -49,7 +49,8 @@ Este microserviço possui **apenas uma responsabilidade**:
 <summary><strong>📁 1. Clonar o Repositório</strong></summary>
 
 \`\`\`bash
-git clone [URL_DO_SEU_REPOSITORIO_GIT]
+git clone [URL_DO_REPOSITORIO]
+
 cd [nome-do-repositorio]
 \`\`\`
 
@@ -73,15 +74,20 @@ CREATE DATABASE db_agendamento;
 
 \`\`\`properties
 # --- Configuração do Banco de Dados MySQL ---
-spring.datasource.url=jdbc:mysql://localhost:3306/db_agendamento
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_una_cadastro
 spring.datasource.username=root
-spring.datasource.password=sua_senha_do_banco
 
 # --- Configuração do Hibernate (JPA) ---
 spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# --- Configuração de Segurança ---
+spring.security.user.name=admin
+spring.security.user.password={noop}admin123
 
 # --- Porta da Aplicação ---
-server.port=8081
+server.port=8080
 \`\`\`
 
 </details>
@@ -101,7 +107,7 @@ server.port=8081
 ./mvnw spring-boot:run
 \`\`\`
 
-A aplicação iniciará em **http://localhost:8081**
+A aplicação iniciará em **http://localhost:8080**
 
 </details>
 
@@ -112,7 +118,7 @@ A aplicação iniciará em **http://localhost:8081**
 
 #### 1. URL da requisição
 \`\`\`
-POST http://localhost:8081/api/v1/usuarios
+POST http://localhost:8080/usuario
 \`\`\`
 
 #### 2. Body (JSON)
