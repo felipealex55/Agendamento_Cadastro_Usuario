@@ -120,7 +120,7 @@ A aplicação iniciará em **http://localhost:8080**
 <summary><strong>🧪 Testar via Postman</strong></summary>
 
 #### 1. URL da requisição
-\`\`\`
+```
 POST http://localhost:8080/usuario
 \`\`\`
 
