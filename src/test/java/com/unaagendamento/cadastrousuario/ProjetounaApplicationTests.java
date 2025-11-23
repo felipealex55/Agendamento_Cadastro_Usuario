@@ -1,4 +1,4 @@
-package com.unaagendamento.projetouna;
+package com.unaagendamento.cadastrousuario;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
