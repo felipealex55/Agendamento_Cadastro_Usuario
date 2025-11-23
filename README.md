@@ -125,9 +125,13 @@ POST http://localhost:8080/usuario
 \`\`\`json
 {
   "nome": "Teste Postman",
+  
   "cpf": "12345678900",
+  
   "email": "teste@postman.com",
+  
   "senha": "senha123",
+  
   "telefone": "31999998888"
 }
 \`\`\`
