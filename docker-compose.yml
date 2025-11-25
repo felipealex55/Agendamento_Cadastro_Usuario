@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # O Banco de Dados
+  db:
+    image: mysql:8.0
+    container_name: db_una_cadastro
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_una_cadastro
+    ports:
+      - "3306:3306" 
+
+  # A Sua API
+  api:
+    image: felipealex55/api_cadastro # Constrói a imagem automaticamente
+    container_name: api_cadastro
+    restart: always
+    ports:
+      - "8080:8080" # Porta que o Flutter chama
+    environment:
+      # Aqui ele conecta no serviço 'db' acima automaticamente
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/db_una_cadastro
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db # Espera o banco subir antes de iniciar
