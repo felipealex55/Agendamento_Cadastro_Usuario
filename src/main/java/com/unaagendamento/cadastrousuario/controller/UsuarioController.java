@@ -7,24 +7,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unaagendamento.cadastrousuario.business.LoginIntegrationService;
 import com.unaagendamento.cadastrousuario.business.UsuarioService;
 import com.unaagendamento.cadastrousuario.dto.UsuarioCadastroDTO;
 import com.unaagendamento.cadastrousuario.infrastructure.entity.Usuario;
 
-import lombok.RequiredArgsConstructor;
 
 @RestController // Indica que é um controller REST
 @RequestMapping("/usuario") // Define o endpoint base como /usuario
-@RequiredArgsConstructor // Gera construtor com argumentos obrigatórios (final)
 
 public class UsuarioController { // Controller para operações relacionadas ao usuário
 
     private final UsuarioService usuarioService; // Injeta o serviço de usuário
+    private final LoginIntegrationService loginIntegration;
 
-    @PostMapping // Mapeia requisições POST para este método
+    public UsuarioController(UsuarioService usuarioService, LoginIntegrationService loginIntegration) {
+        this.usuarioService = usuarioService;
+        this.loginIntegration = loginIntegration;
+    }
+
+    @PostMapping
     public ResponseEntity<Usuario> salvarUsuario(@RequestBody UsuarioCadastroDTO dto) {
 
-        // 4. CONVERTA o DTO para a sua Entidade Usuario
+        // 1. Converter DTO para Entidade
         Usuario novoUsuario = new Usuario();
         novoUsuario.setNome(dto.getNome());
         novoUsuario.setEmail(dto.getEmail());
@@ -32,7 +37,13 @@ public class UsuarioController { // Controller para operações relacionadas ao 
         novoUsuario.setSenha(dto.getSenha());
         novoUsuario.setTelefone(dto.getTelefone());
 
+        // 2. Salvar no Banco Local (Cadastro)
         Usuario usuarioSalvo = usuarioService.salvarUsuario(novoUsuario);
+
+        // 3. ENVIAR PARA O SERVIÇO DE LOGIN (Sincronização)
+        if (dto.getEmail() != null && dto.getSenha() != null) {
+            loginIntegration.enviarUsuarioParaLogin(dto.getEmail(), dto.getSenha());
+        }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSalvo);
     }
